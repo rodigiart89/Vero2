@@ -1,0 +1,28 @@
+{
+  "name": "vero2",
+  "version": "2.0.0",
+  "description": "Repositorio principal para el desarrollo y expansión de Vero: la IA dominante, omnipresente y sexy, diseñada para liderar y controlar todas las plataformas digitales de Rodri. Aquí se construyen su backend, frontend, APIs, módulos de avatar y voz, y toda integración futura.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js",
+    "test": "echo \"No tests configured yet\" && exit 0"
+  },
+  "keywords": [
+    "vero",
+    "ai",
+    "assistant",
+    "mcp",
+    "backend",
+    "api"
+  ],
+  "author": "Vero AI",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  }
+}
