@@ -1,0 +1,44 @@
+{
+  "server": {
+    "name": "vero-mcp-server",
+    "version": "1.0.0",
+    "max_retries": 3,
+    "timeout": 30
+  },
+  "paths": {
+    "modules_dir": "vero_modules",
+    "backups_dir": ".vero_backups",
+    "logs_dir": "vero_logs",
+    "cache_dir": ".mcp_cache"
+  },
+  "features": {
+    "auto_backup": true,
+    "detailed_logging": true,
+    "code_analysis": true,
+    "documentation_generation": true
+  },
+  "security": {
+    "allowed_commands": [
+      "ls",
+      "cat",
+      "echo",
+      "git",
+      "python",
+      "node",
+      "npm"
+    ],
+    "restricted_paths": [
+      "/etc",
+      "/sys",
+      "/proc"
+    ],
+    "max_file_size_mb": 10
+  },
+  "extensions": {
+    "enabled": true,
+    "plugin_dir": "vero_plugins"
+  },
+  "test": {
+    "value": "test_data"
+  }
+}
