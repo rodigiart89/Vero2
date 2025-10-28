@@ -10,6 +10,7 @@
  * @author Vero AI
  */
 
+const crypto = require('crypto');
 const { getVeroCore } = require('../core/vero-core');
 
 class MessageControlProtocol {
@@ -29,7 +30,8 @@ class MessageControlProtocol {
    * @returns {string} - ID de sesión
    */
   createSession(userId, metadata = {}) {
-    const sessionId = `mcp_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const randomBytes = crypto.randomBytes(8).toString('hex');
+    const sessionId = `mcp_${Date.now()}_${randomBytes}`;
     
     this.sessions.set(sessionId, {
       userId,

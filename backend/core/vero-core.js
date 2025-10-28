@@ -142,7 +142,10 @@ class VeroCore {
    * @returns {Promise<Object>} - Resultado del comando
    */
   async executeCommand(command, params = {}) {
-    console.log(`⚡ Ejecutando comando: ${command}`, params);
+    // Log command safely (whitelist known commands for logging)
+    const knownCommands = ['status', 'list_subagents', 'register_subagent', 'remove_subagent'];
+    const commandForLog = knownCommands.includes(command) ? command : 'unknown_command';
+    console.log(`⚡ Ejecutando comando: ${commandForLog}`, params);
     
     switch (command) {
       case 'status':
