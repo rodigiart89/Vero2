@@ -86,8 +86,8 @@ class CodeAnalysisHandler:
                     "classes": classes,
                     "complexity": "moderate" if functions > 5 else "low"
                 }
-            except:
-                return {"error": "No se pudo analizar el archivo Python"}
+            except (SyntaxError, ValueError, UnicodeDecodeError) as e:
+                return {"error": f"No se pudo analizar el archivo Python: {str(e)}"}
         
         return {"message": "Análisis de calidad disponible solo para archivos Python"}
     

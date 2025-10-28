@@ -108,9 +108,12 @@ class CodeModificationHandler:
             
         Returns:
             Contenido modificado
+            
+        Note:
+            Esta es una implementación placeholder. En producción, esto debería
+            usar un LLM o parser de código para aplicar cambios específicos.
+            Por ahora, agrega un comentario indicando los cambios solicitados.
         """
-        # En una implementación real, esto usaría un LLM o parser
-        # Por ahora, agregamos un comentario indicando los cambios solicitados
         timestamp = datetime.now().isoformat()
         header = f"""
 # ============================================================

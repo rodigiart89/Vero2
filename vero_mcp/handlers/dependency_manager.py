@@ -149,10 +149,13 @@ class DependencyManagerHandler:
             req_file = Path("requirements.txt")
             content = req_file.read_text(encoding="utf-8")
             
-            # Filtrar líneas que no contengan el paquete
+            # Filtrar líneas que contengan el paquete específico
+            # Usa coincidencia exacta con el nombre del paquete antes de == o >= etc.
+            import re
+            pattern = re.compile(rf'^{re.escape(package)}(\s*[=<>!]=.*)?$')
             new_lines = [
                 line for line in content.splitlines()
-                if not line.strip().startswith(package)
+                if not (line.strip() and pattern.match(line.strip().split()[0]))
             ]
             
             req_file.write_text("\n".join(new_lines), encoding="utf-8")

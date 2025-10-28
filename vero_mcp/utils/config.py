@@ -63,8 +63,10 @@ class ConfigManager:
             try:
                 with self.config_file.open("r", encoding="utf-8") as f:
                     return json.load(f)
-            except Exception:
-                # Si hay error, usar configuración por defecto
+            except (json.JSONDecodeError, IOError) as e:
+                # Si hay error de configuración, usar configuración por defecto
+                import logging
+                logging.warning(f"Error loading config file: {e}. Using default configuration.")
                 return self.DEFAULT_CONFIG.copy()
         else:
             # Crear archivo de configuración por defecto

@@ -133,8 +133,8 @@ Ruta: `{target}`
                         if docstring:
                             doc += f"{docstring}\n\n"
                 
-            except:
-                doc += "*No se pudo analizar el contenido del archivo Python*\n\n"
+            except (SyntaxError, ValueError, UnicodeDecodeError) as e:
+                doc += f"*No se pudo analizar el contenido del archivo Python: {str(e)}*\n\n"
         
         if include_examples:
             doc += """## Ejemplos de Uso
